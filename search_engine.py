@@ -52,7 +52,9 @@ def bfs(grafo, origen, destino):
         for vecino, t, es_transbordo in grafo[estacion_actual]:
             if vecino not in visitados:
                 nueva_ruta       = ruta + [vecino]
-                nuevo_tiempo     = tiempo + t
+                # Se suma +5 min por transbordo (igual que A*) para que
+                # ambos algoritmos reporten el mismo tipo de tiempo real
+                nuevo_tiempo     = tiempo + t + (5 if es_transbordo else 0)
                 nuevos_transbord = transbordos + (1 if es_transbordo else 0)
 
                 if vecino == destino:
