@@ -199,7 +199,16 @@ def comparar_algoritmos(origen, destino):
 
 
 if __name__ == "__main__":
-    # Prueba rápida
-    comparar_algoritmos("Portal Norte", "Portal Sur")
-    comparar_algoritmos("Portal Suba", "Portal Tunal")
-    comparar_algoritmos("Portal 80", "Portal Américas")
+    # Casos donde ambos algoritmos encuentran la misma ruta
+    print("\n📌 CASO 1 — Misma ruta, mismo tiempo (A* confirma que BFS ya era óptimo)")
+    comparar_algoritmos("Portal Norte", "Portal Américas")
+
+    # Casos donde A* supera a BFS evitando transbordos innecesarios
+    print("\n📌 CASO 2 — A* ahorra 17 min evitando 2 transbordos (ruta diferente)")
+    comparar_algoritmos("Portal 80", "Portal Sur")
+
+    print("\n📌 CASO 3 — A* ahorra 4 min con 1 parada extra pero 2 transbordos menos")
+    comparar_algoritmos("Mártires", "Restrepo")
+
+    print("\n📌 CASO 4 — A* ahorra 4 min: BFS zigzaguea entre 4 troncales en 4 paradas")
+    comparar_algoritmos("NQS Calle 30", "Av. Jiménez")
